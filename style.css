@@ -73,3 +73,119 @@ h1,h2,h3{font-family:'Oldschool Condensed',Impact,sans-serif;font-weight:700;tex
   .pain{right:23vw;top:14vh}
 }
 @media(min-width:761px){.meeting-arrow{right:13vw;bottom:11vh}}
+.anim-title{clip-path:none}
+.eyebrow{font-family:'Oldschool Condensed',Impact,sans-serif;font-size:clamp(18px,1.55vw,26px);line-height:1;text-transform:uppercase;letter-spacing:.055em}
+
+/* Coherence pass: one hierarchy, one grid, purposeful colour only */
+.eyebrow{font-size:clamp(22px,1.8vw,30px)}
+.slide-head{display:block;top:11vh;padding-bottom:2.5vh}
+.slide-head h2{margin-top:2.5vh;font-size:clamp(76px,8.1vw,132px)}
+
+.format:nth-child(7){background:transparent;color:inherit;border-color:rgba(244,240,237,.55)}
+.format:nth-child(7) b{color:var(--purple)}
+
+.question-center{position:absolute;left:5vw;right:5vw;top:50%;transform:translateY(-43%)}
+.question-only h2{position:static;font-size:clamp(105px,13.2vw,210px);max-width:90vw}
+.question-followup{display:inline-block;margin-top:4vh;padding:.12em .3em .08em;background:var(--yellow);font:700 clamp(42px,5vw,80px)/.9 'Oldschool Condensed',Impact,sans-serif;text-transform:uppercase}
+.why,.why-arrow{display:none}
+
+.photo-right .side-copy{left:5vw;top:22vh;width:45vw}
+.photo-right .side-copy h2{font-size:clamp(82px,8.2vw,132px)}
+.photo-right .body{max-width:42vw;font-size:clamp(25px,2.3vw,38px);font-weight:700}
+.photo-right .main-photo{right:5vw;top:11vh;width:39vw;height:76vh}
+.photo-right .main-photo img{object-position:center}
+
+.qualities-copy{position:absolute;left:5vw;top:15vh;width:55vw;z-index:3}
+.qualities-copy .eyebrow{position:static}
+.qualities-copy h2{margin-top:2.5vh;font-size:clamp(78px,8vw,130px)}
+.quality-list{list-style:none;padding:0;margin:4vh 0 0;display:grid}
+.quality-list li{display:grid;grid-template-columns:5vw 1fr;align-items:center;gap:1.4vw;padding:1.15vh 0;border-top:2px solid rgba(244,240,237,.5)}
+.quality-list b{font:700 clamp(25px,2.5vw,40px)/1 'Oldschool Condensed';color:var(--purple)}
+.quality-list span{font:700 clamp(40px,4.1vw,68px)/.92 'Oldschool Condensed';text-transform:uppercase}
+.quality-photo{right:4vw;top:12vh;width:31vw;height:77vh}
+
+.radar-photo{right:4vw;top:10vh;width:52vw;height:78vh}
+.radar-copy{left:5vw;top:27vh;width:39vw}
+.radar-copy .eyebrow{font-size:clamp(32px,3vw,50px);line-height:.95}
+.radar-copy h2{font-size:clamp(105px,10.5vw,170px);margin-top:4vh}
+
+.helps .slide-head{left:5vw;right:5vw;top:12vh}
+.helps .slide-head .eyebrow{display:none}
+.helps .slide-head h2{margin:0;font-size:clamp(86px,8.7vw,140px)}
+.help-rows{top:39vh;gap:1.4vw}
+.help-rows li{min-height:34vh;border:0;padding:2.5vh 2vw}
+.help-rows li:nth-child(1){background:var(--purple)}
+.help-rows li:nth-child(2){background:var(--yellow)}
+.help-rows li:nth-child(3){background:var(--green);color:var(--paper)}
+.help-rows b{color:inherit;opacity:.72}
+
+.publication .eyebrow{top:14vh}
+.publication h2{top:25vh;font-size:clamp(82px,9.2vw,148px)}
+.publication .body{left:5vw;right:auto;bottom:auto;top:69vh;max-width:70vw;font-size:clamp(28px,3vw,48px);font-weight:700}
+.publication .pain{display:none}
+
+.process-track{top:39vh;gap:1vw;grid-template-columns:1fr .18fr 1fr .18fr 1fr .18fr 1fr}
+.step{min-height:32vh;background:var(--purple);padding:2.4vh 1.5vw;display:flex;flex-direction:column;justify-content:space-between;text-align:left}
+.step b{font-size:clamp(58px,6vw,96px);color:var(--green)}
+.step span{margin:0;font-size:clamp(34px,3.25vw,52px)}
+.process-track img{width:5vw}
+
+.choice-list{top:22vh;width:46vw;gap:2.5vh}
+.choice{min-height:25vh;border:0;grid-template-columns:5vw 1fr;padding:2.5vh 2vw}
+.choice-a{background:var(--purple)}
+.choice-b{background:var(--yellow)}
+.choice b,.choice-b b{width:auto;height:auto;background:transparent;font:700 clamp(38px,4vw,64px)/1 'Oldschool Condensed'}
+.choice span{font-size:clamp(46px,4.8vw,78px)}
+.choice-photo{right:4vw;top:10vh;width:39vw;height:79vh}
+
+.closing-photo img{object-position:center}
+
+@media(max-aspect-ratio:4/3) and (min-width:761px){
+  .eyebrow{font-size:26px}
+  .slide-head h2{font-size:100px}
+  .question-only h2{font-size:145px}
+  .question-followup{font-size:58px}
+  .photo-right .side-copy h2{font-size:96px}
+  .qualities-copy h2{font-size:96px}
+  .quality-list span{font-size:48px}
+  .radar-copy .eyebrow{font-size:38px}
+  .radar-copy h2{font-size:125px}
+  .helps .slide-head h2{font-size:108px}
+  .publication h2{font-size:112px}
+  .choice span{font-size:58px}
+  .photo-right .side-copy{left:5vw;top:15vh;width:88vw}
+  .photo-right .side-copy h2{font-size:92px}
+  .photo-right .body{margin-top:3vh;max-width:78vw}
+  .photo-right .main-photo{right:5vw;top:53vh;width:68vw;height:40vh}
+  .radar-copy{left:5vw;top:16vh;width:88vw}
+  .radar-copy h2{font-size:112px;white-space:nowrap}
+  .radar-photo{right:5vw;top:46vh;width:76vw;height:46vh}
+  .qualities-copy{left:5vw;top:11vh;width:88vw}
+  .qualities-copy h2{font-size:88px}
+  .quality-list{width:55vw;margin-top:3vh}
+  .quality-list span{font-size:40px}
+  .quality-photo{right:4vw;top:50vh;width:34vw;height:42vh}
+  .help-rows{top:33vh;grid-template-columns:1fr;gap:1.4vh}
+  .help-rows li{min-height:17vh;display:grid;grid-template-columns:12vw 1fr;align-items:center}
+  .help-rows span{font-size:58px}
+  .publication h2{top:23vh;font-size:102px}
+  .publication .body{top:58vh}
+  .process-track{top:34vh;grid-template-columns:1fr 1fr;gap:2vh 2vw}
+  .process-track>img{display:none}
+  .step{min-height:22vh}
+  .step b{font-size:68px}
+  .step span{font-size:38px}
+  .choice-list{left:5vw;top:17vh;width:56vw}
+  .choice{min-height:23vh}
+  .choice-photo{right:4vw;top:18vh;width:33vw;height:68vh}
+  .meeting-photo{left:5vw;top:11vh;width:88vw;height:43vh}
+  .meeting-copy{left:5vw;top:59vh;width:88vw}
+  .meeting-copy h2{font-size:86px;margin-top:2vh}
+  .meeting-copy .serif{margin-top:2.5vh}
+  .meeting-arrow{display:none}
+  .closing-copy{left:5vw;top:15vh}
+  .closing-copy h2{font-size:96px}
+  .closing-copy h3{font-size:60px}
+  .closing-copy a{margin-top:3vh}
+  .closing-photo{right:5vw;top:54vh;width:49vw;height:38vh}
+}
