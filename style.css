@@ -140,6 +140,11 @@ h1,h2,h3{font-family:'Oldschool Condensed',Impact,sans-serif;font-weight:700;tex
 
 .closing-photo img{object-position:center}
 
+/* Cover type is capped by both width and height, so short browser windows cannot crop it. */
+.cover-copy{top:24vh;width:52vw}
+.cover-copy h1{font-size:clamp(64px,min(9vw,15vh),145px);line-height:.86;margin-top:3vh;max-width:52vw}
+.presenter{margin-top:4vh}
+
 @media(max-aspect-ratio:4/3) and (min-width:761px){
   .eyebrow{font-size:26px}
   .slide-head h2{font-size:100px}
