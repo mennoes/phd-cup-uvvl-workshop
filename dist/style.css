@@ -145,6 +145,28 @@ h1,h2,h3{font-family:'Oldschool Condensed',Impact,sans-serif;font-weight:700;tex
 .cover-copy h1{font-size:clamp(64px,min(9vw,15vh),145px);line-height:.86;margin-top:3vh;max-width:52vw}
 .presenter{margin-top:4vh}
 
+/* Question slide: clear split composition, no floating label or decorative prompt. */
+.question-panel{position:absolute;left:0;top:0;width:57vw;height:100vh;background:var(--purple);padding:15vh 5vw;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.question-panel .eyebrow{position:static}
+.question-panel h2{position:static;margin-top:4vh;max-width:47vw;font-size:clamp(82px,min(9vw,15vh),145px)}
+.question-panel .question-followup{display:block;margin-top:6vh;padding:0;background:none;font:700 clamp(25px,2.4vw,38px)/1.1 Oldschool,Arial,sans-serif;text-transform:none}
+.question-photo{right:4vw;top:9vh;width:41vw;height:82vh;--photo-rotate:rotate(2.2deg)}
+.question-photo img{object-position:center}
+
+@media(max-aspect-ratio:4/3) and (min-width:761px){
+  .question-panel{width:100vw;height:48vh;padding:10vh 5vw 5vh;justify-content:center}
+  .question-panel h2{margin-top:2vh;max-width:90vw;font-size:92px}
+  .question-panel .question-followup{margin-top:3vh;font-size:30px}
+  .question-photo{right:7vw;top:52vh;width:78vw;height:41vh}
+}
+
+@media(max-width:760px){
+  .question-panel{width:100vw;height:50vh;padding:11vh 6vw 5vh}
+  .question-panel h2{margin-top:2vh;max-width:88vw;font-size:15vw}
+  .question-panel .question-followup{margin-top:3vh;font-size:5vw}
+  .question-photo{right:6vw;top:55vh;width:82vw;height:38vh}
+}
+
 @media(max-aspect-ratio:4/3) and (min-width:761px){
   .eyebrow{font-size:26px}
   .slide-head h2{font-size:100px}
