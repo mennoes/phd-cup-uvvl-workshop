@@ -1,50 +1,51 @@
 (() => {
   const slides = [...document.querySelectorAll('.slide')];
   const counter = document.querySelector('.counter');
-  const prev = document.querySelector('.prev');
+  const progress = document.querySelector('.progress span');
+  const previous = document.querySelector('.prev');
   const next = document.querySelector('.next');
   const fullscreen = document.querySelector('.fullscreen');
-  const hint = document.querySelector('.hint');
-  let index = Math.max(0, Math.min(slides.length - 1, (parseInt(location.hash.slice(1), 10) || 1) - 1));
-  let touchStart = null;
+  let current = Math.max(0, Math.min(slides.length - 1, (Number(location.hash.slice(1)) || 1) - 1));
+  let touchStart = 0;
 
-  function show(target, updateHash = true) {
-    const nextIndex = Math.max(0, Math.min(slides.length - 1, target));
+  function show(index, updateHash = true) {
+    const target = Math.max(0, Math.min(slides.length - 1, index));
     slides.forEach((slide, i) => {
-      slide.classList.toggle('is-active', i === nextIndex);
-      slide.classList.toggle('was-active', i < nextIndex);
-      slide.setAttribute('aria-hidden', i === nextIndex ? 'false' : 'true');
+      slide.classList.toggle('is-active', i === target);
+      slide.classList.toggle('was-active', i < target);
+      slide.setAttribute('aria-hidden', i === target ? 'false' : 'true');
     });
-    index = nextIndex;
-    counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
-    prev.disabled = index === 0;
-    next.disabled = index === slides.length - 1;
-    if (updateHash) history.replaceState(null, '', `#${index + 1}`);
-    hint.style.opacity = index === 0 ? '.78' : '0';
-    document.title = `${slides[index].getAttribute('aria-label')} — UvVL`;
+    current = target;
+    const active = slides[current];
+    document.body.classList.toggle('brand-light', active.classList.contains('dark'));
+    document.body.classList.toggle('own-brand', active.classList.contains('cover') || active.classList.contains('closing'));
+    counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+    progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+    previous.disabled = current === 0;
+    next.disabled = current === slides.length - 1;
+    document.title = `${active.getAttribute('aria-label')} — UvVL`;
+    if (updateHash) history.replaceState(null, '', `#${current + 1}`);
   }
 
-  const step = (amount) => show(index + amount);
-  prev.addEventListener('click', () => step(-1));
-  next.addEventListener('click', () => step(1));
-  fullscreen.addEventListener('click', async () => {
-    if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
-    else await document.exitFullscreen?.();
+  const move = direction => show(current + direction);
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  fullscreen.addEventListener('click', () => {
+    if (document.fullscreenElement) document.exitFullscreen?.();
+    else document.documentElement.requestFullscreen?.();
   });
-  window.addEventListener('keydown', (event) => {
-    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(event.key)) { event.preventDefault(); step(1); }
-    if (['ArrowLeft', 'PageUp', 'Backspace'].includes(event.key)) { event.preventDefault(); step(-1); }
+  addEventListener('keydown', event => {
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(event.key)) { event.preventDefault(); move(1); }
+    if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.key)) { event.preventDefault(); move(-1); }
     if (event.key === 'Home') show(0);
     if (event.key === 'End') show(slides.length - 1);
     if (event.key.toLowerCase() === 'f') fullscreen.click();
   });
-  window.addEventListener('hashchange', () => show((parseInt(location.hash.slice(1), 10) || 1) - 1, false));
-  window.addEventListener('touchstart', event => { touchStart = event.changedTouches[0].clientX; }, {passive:true});
-  window.addEventListener('touchend', event => {
-    if (touchStart === null) return;
-    const delta = event.changedTouches[0].clientX - touchStart;
-    if (Math.abs(delta) > 48) step(delta < 0 ? 1 : -1);
-    touchStart = null;
-  }, {passive:true});
-  show(index, false);
+  addEventListener('hashchange', () => show((Number(location.hash.slice(1)) || 1) - 1, false));
+  addEventListener('touchstart', event => { touchStart = event.changedTouches[0].clientX; }, { passive: true });
+  addEventListener('touchend', event => {
+    const distance = event.changedTouches[0].clientX - touchStart;
+    if (Math.abs(distance) > 55) move(distance < 0 ? 1 : -1);
+  }, { passive: true });
+  show(current, false);
 })();
