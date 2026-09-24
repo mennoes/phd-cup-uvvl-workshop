@@ -32,6 +32,8 @@ h1,h2,h3{font-family:'Oldschool Condensed',Impact,sans-serif;font-weight:700;tex
 
 /* quote */
 .pull-photo img{object-position:center top}.quote-copy .serif{max-width:35vw}.bolt{right:5vw;top:6vh;width:9vw;transform:rotate(10deg)}
+.pullquote .quote-copy{left:53vw;width:43vw}
+.pullquote .quote-copy h2{font-size:clamp(68px,6.1vw,108px);white-space:nowrap}
 
 /* radar */
 .radar-photo{right:4vw;top:7vh;width:61vw;height:84vh;transform:rotate(1.8deg)}.radar-photo img{object-position:center}.radar-copy{position:absolute;left:5vw;top:22vh;z-index:4}.radar-copy h2{font-size:clamp(130px,17vw,280px);margin-top:3vh}.radar-circle{right:21vw;top:20vh;width:18vw;transform:rotate(-7deg);z-index:4}
